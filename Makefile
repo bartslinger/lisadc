@@ -214,3 +214,6 @@ ULIBS =
 
 RULESPATH = $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC
 include $(RULESPATH)/rules.mk
+
+flash: all
+	openocd -s /opt/openocd/0.9.0-201505190955/scripts -f board/stm32f4discovery.cfg -c "program build/ch.elf verify reset exit"
